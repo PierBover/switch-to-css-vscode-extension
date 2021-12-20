@@ -62,7 +62,7 @@ async function getRelatedPath (currentDocumentPath) {
 	const folderFiles = await fs.readdir(folderPath);
 
 	for (const filename of folderFiles) {
-		if (filename !== currentFilename && filename.includes(currentNoExtension)) {
+		if (filename !== currentFilename &&	path.extname(filename) === currentNoExtension) {
 			return folderPath + '/' + filename;
 		}
 	}
